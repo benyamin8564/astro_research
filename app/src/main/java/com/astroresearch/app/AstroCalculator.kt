@@ -47,7 +47,6 @@ object AstroCalculator {
         fun dec(l:Double)=asin(sin(eps)*sin(toRad(l)))
         var best=0.0; var bestErr=1e9
         for(i in 0..3600){ val l=i/10.0; val dd=dec(l); val q=-tan(phi)*tan(dd); if(q>=-1 && q<=1){ val h=-acos(q); var err=wrapRad(toRad(theta)-ra(l)-h); if(err>Math.PI)err=2*Math.PI-err; if(err<bestErr){bestErr=err;best=l} } }
-        val mc=norm(toDeg(theta* Math.PI/180.0)) // approximate placeholder corrected below
         // MC is ecliptic longitude whose RA equals local sidereal time.
         var bestMc=0.0; var e=1e9; for(i in 0..3600){ val l=i/10.0; var er=abs(wrapRad(ra(l)-toRad(theta))); if(er>Math.PI)er=2*Math.PI-er; if(er<e){e=er;bestMc=l} }
         return best to bestMc

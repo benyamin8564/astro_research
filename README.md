@@ -1,31 +1,37 @@
-# Astro Research
+# Astro Research — Android
 
-Android app for exploratory Western/tropical natal-chart interpretation.
+پروژه Android پژوهشی برای محاسبه و نمایش نمودار تولد با ورودی تاریخ، ساعت، محل تولد، منطقه زمانی، مختصات جغرافیایی و چند سؤال تکمیلی.
 
-## Important
-This app is not a medical diagnostic tool and not financial advice. Astrological interpretations are presented as traditional/symbolic hypotheses. Do not use them to diagnose illness, choose treatments, or guarantee investment outcomes.
+## ساخت APK در GitHub
 
-## Inputs
-- Full name
-- Mother's name (stored as optional metadata; not used by Western natal-chart math)
-- Exact birth date/time
-- Birth city/country
-- Time-zone offset
-- Latitude/longitude
-- Optional context: work, relationship status, investment horizon, risk tolerance, research question
+این پروژه Workflow آماده GitHub Actions دارد:
 
-## Method
-- Tropical zodiac
-- Whole Sign houses
-- Internal low-complexity astronomical approximation for planetary longitudes
-- Major aspects: conjunction, sextile, square, trine, opposition
+`.github/workflows/build-apk.yml`
 
-For high-stakes or published research, cross-check planetary positions against a validated ephemeris such as Swiss Ephemeris and document the ephemeris, house system, zodiac, timezone and location used.
+با هر Push به `main` یا `master`، یا با اجرای دستی Workflow، پروژه ساخته می‌شود و APK در بخش **Artifacts** با نام زیر قرار می‌گیرد:
 
-## Sources
-- https://www.astro.com/astrology/in_chart_e.htm
-- https://www.astro.com/astrology/cgi/ade.cgi
-- https://www.astro.com/swisseph/
+`astro-research-debug-apk`
 
-## License note
-The app source is yours to modify, but any future integration of Swiss Ephemeris must comply with its applicable license terms.
+## ورودی‌ها
+
+- نام
+- نام مادر (اختیاری؛ در محاسبه نمودار غربی استفاده نمی‌شود)
+- تاریخ تولد
+- ساعت تولد
+- شهر و کشور
+- منطقه زمانی
+- عرض و طول جغرافیایی
+- شغل، وضعیت رابطه، افق سرمایه‌گذاری، تحمل ریسک و سؤال اصلی
+
+## روش محاسبه
+
+- Tropical Zodiac
+- Whole Sign Houses
+- محاسبه داخلی تقریبی موقعیت سیارات و زوایا
+- Ascendant و MC با محاسبه تقریبی
+
+برای محاسبات دقیق نجومی/پژوهشی، خروجی باید با یک Ephemeris معتبر مانند Swiss Ephemeris تطبیق داده شود و مجوز آن پیش از استفاده در محصول نهایی بررسی شود.
+
+## نکته مهم
+
+این برنامه ابزار پژوهشی/تفسیری آسترولوژی است. پیش‌بینی بیماری، تشخیص پزشکی، تضمین موفقیت مالی یا توصیه قطعی برای خریدوفروش سرمایه‌گذاری ارائه نمی‌کند. برای تصمیم‌های پزشکی و مالی باید از منابع تخصصی و مستقل استفاده شود.
